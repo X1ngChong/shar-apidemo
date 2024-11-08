@@ -1,0 +1,31 @@
+server:
+  port: 8002
+#  servlet:
+#    context-path: /content-service
+
+spring:
+  application:
+    name: content-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        username: nacos
+        password: nacos
+        namespace: dev
+  datasource:
+    url: jdbc:mysql://localhost:3306/content_center?characterEncoding=UTF8&autoReconnect=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+logging:
+  level:
+    top.bhui.share.content.mapper: debug
+
+rocketmq:
+  name-server: 121.199.27.54:9876
+  producer:
+    group: review_group_bhui
+  consumer:
+    group: share_group_bhui

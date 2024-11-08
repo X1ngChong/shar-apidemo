@@ -33,3 +33,85 @@ Content-Type: application/json
   "phone": "15805133030",
   "password": "123123"
 }
+
+
+
+###
+GET http://localhost:8000/content-service/share/notice
+Accept: application/json
+
+
+###
+GET http://localhost:8000/content-service/share/list
+Accept: application/json
+token: {{token}}
+
+###
+GET http://localhost:8000/content-service/share/list
+Accept: application/json
+token: {{token}}
+
+###
+GET http://localhost:8000/content-service/share/1
+Accept: application/json
+token: {{token}}
+
+###
+POST http://localhost:8000/user-service/user/updateBonus
+Content-Type: application/json
+token: {{token}}
+
+{
+ "userId": 1,
+ "bonus": 10
+}
+
+###
+POST http://localhost:8000/content-service/share/exchange
+Content-Type: application/json
+token: {{token}}
+
+{
+  "userId": 2,
+  "shareId": 9
+}
+
+
+
+
+
+
+
+
+
+
+###
+POST http://localhost:8000/content-service/share/contribute
+Content-Type: application/json
+token: {{token}}
+
+{
+    "userId": 2,
+    "author": "测试作者",
+    "title": "测试内容",
+    "isOriginal": 1,
+    "price": 20,
+    "downloadUrl": "https://cn.vuejs.org",
+    "cover": "http://niit-soft.oss-cn-hangzhou.aliyuncs.com/share-app/vue3.jpg",
+    "summary": "测试"
+}
+
+###
+GET http://localhost:8000/content-service/share/myContribute?pageNo=2&pageSize=1
+Content-Type: application/json
+token: {{token}}
+
+###
+GET http://localhost:8000/content-service/share/admin/list
+Content-Type: application/json
+token: {{token}}
+
+###
+GET http://localhost:8000/content-service/share/approve/1854828848368668674
+Content-Type: application/json
+token: {{token}}

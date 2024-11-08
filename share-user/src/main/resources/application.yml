@@ -1,9 +1,18 @@
 server:
   port: 8001
-  servlet:
-    context-path: /user-service
+#  servlet:
+#    context-path: /user-service
 
 spring:
+  application:
+    name: user-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        username: nacos
+        password: nacos
+        namespace: dev
   datasource:
     url: jdbc:mysql://localhost:3306/user_center?characterEncoding=UTF8&autoReconnect=true&serverTimezone=Asia/Shanghai
     username: root

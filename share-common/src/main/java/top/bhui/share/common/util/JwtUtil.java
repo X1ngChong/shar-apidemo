@@ -27,7 +27,8 @@ public class JwtUtil {
         payload.put(JWTPayload.EXPIRES_AT, expTime);
         // 生效时间
         payload.put(JWTPayload.NOT_BEFORE, now);
-        // 内容 payload.put("id", id);
+        // 内容
+        payload.put("id", id);
         payload.put("phone", phone);
         String token = JWTUtil.createToken(payload, KEY.getBytes());
         log.info("生成 JWT token：{}", token);

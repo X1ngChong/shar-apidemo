@@ -1,13 +1,28 @@
 server:
   port: 8000
 spring:
+  application:
+    name: gateway-service
   cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        username: nacos
+        password: nacos
+        namespace: dev
     gateway:
+      discovery:
+        locator:
+          enabled: true
       routes:
         - id: route-user
-          uri: http://127.0.0.1:8001
+          uri: lb://user-service
           predicates:
             - Path=/user-service/**
+        - id: route-content
+          uri: lb://content-service
+          predicates:
+            - Path=/content-service/**
       globalcors:
         cors-configurations:
           '[/**]':
